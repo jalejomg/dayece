@@ -1,8 +1,99 @@
-﻿@{
+﻿@model ColdChainCheckModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center super-header">
+    <h1 class="display-4">Cold chain checker</h1>
+    <div class="display-4">
+         <button type="button" class="btn btn-primary">Refresh <i class="bi bi-arrow-clockwise"></i></button>
+    </div>    
 </div>
+
+<ol class="list-group list-group-numbered">
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">GPS</div>
+      @Model.Gps
+    </div>
+        @if(@Model.Gps != null)
+        {
+            <span class="badge bg-primary rounded-pill">Ok</span>
+        }
+        else
+        {
+             <span class="badge bg-danger rounded-pill">Failed</span>
+        }
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">Humedad</div>
+      @Model.Humidity
+    </div>
+    @if(@Model.Humidity != null)
+        {
+            <span class="badge bg-primary rounded-pill">Ok</span>
+        }
+        else
+        {
+             <span class="badge bg-danger rounded-pill">Failed</span>
+        }
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">Temperatura</div>
+      @Model.Temperature
+    </div>
+    @if(@Model.Temperature != null)
+        {
+            <span class="badge bg-primary rounded-pill">Ok</span>
+        }
+        else
+        {
+             <span class="badge bg-danger rounded-pill">Failed</span>
+        }
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">Veces que se abrió la puerta</div>
+      @Model.DoorOpenTimes
+    </div>
+     @if(@Model.DoorOpenTimes != null)
+        {
+            <span class="badge bg-primary rounded-pill">Ok</span>
+        }
+        else
+        {
+             <span class="badge bg-danger rounded-pill">Failed</span>
+        }
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">Carga del dispositivo</div>
+      @Model.DeviceCharge
+    </div>
+     @if(@Model.DeviceCharge != null)
+        {
+            <span class="badge bg-primary rounded-pill">Ok</span>
+        }
+        else
+        {
+             <span class="badge bg-danger rounded-pill">Failed</span>
+        }
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">Cumplimiento del contrato</div>
+      @Model.ContractFulfilled
+    </div>
+     @if(@Model.ContractFulfilled != null)
+        {
+            <span class="badge bg-primary rounded-pill">Ok</span>
+        }
+        else
+        {
+             <span class="badge bg-danger rounded-pill">Failed</span>
+        }
+  </li>
+</ol>

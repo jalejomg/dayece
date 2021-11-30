@@ -15,7 +15,16 @@ namespace ColdChainChecker.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var model = new ColdChainCheckModel
+            {
+                Gps = 1234321,
+                Humidity = 432,
+                Temperature = 12,
+                DoorOpenTimes = 1,
+                DeviceCharge = 50,
+                ContractFulfilled = true
+            };
+            return View(model);
         }
 
         public IActionResult Privacy()
